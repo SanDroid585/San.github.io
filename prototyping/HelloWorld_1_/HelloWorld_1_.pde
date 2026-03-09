@@ -1,10 +1,10 @@
-println("Hello World");
+println("Hello World. Im hungry ash rn icl you should send me money to buy sum food ;) ");
 //
-print("Hello");
-print("World");
+print("Send");
+print("Me");
 //
-print("Hello");
-print("\tWorld");
+print("Food");
+print("\tMoney");
 //
-print("Hello");
-print("\nWorld");
+print("Please");
+print("\n And thank You");
