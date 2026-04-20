@@ -32,18 +32,27 @@ float aboutAuthorDivY = appHeight * 137 / paperHeight;
 float aboutAuthorDivWidth = appWidth * 31 / paperWidth;
 float aboutAuthorDivHeight = appHeight * 18 / paperHeight;
 
+float ExitButtonDivX = appWidth * 123 / paperWidth;
+float ExitButtonDivY = appHeight * 5 / paperHeight;
+float ExitButtonDivWidth = appWidth * 12 / paperWidth;
+float ExitButtonDivHeight = appHeight * 12 / paperHeight;
 
 
 rect(songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight);
 rect(lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight);
 rect(artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight);
+rect(ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
 
 
 rect(aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight);
 
 
 //String, Text, Literal
-String title = "Shawty a lil baddie she ma lil bo thing" ;
+String title = "Martin & Gina" ;
+String X = "X" ;
+String Lyrics = "Lyrics" ;
+String Artistname = "Polo G" ;
+String AboutAthour = "About author" ;
 
 //fonts from OSv
 println ("start of console");
@@ -51,7 +60,7 @@ String[] fontList = PFont.list();
 printArray(fontList);
 
 //Fonts from OS
-float fontsize = 10;
+float fontsize = 4;
 println ( fontsize );
 PFont titleFont;
 String Black_Italik = "SegoeUIBlack-Italic";
@@ -68,13 +77,12 @@ float Black_ItalikdivHeight = songTitleDivWidth;
 float Black_ItalikAspectRatio = fontsize / songTitleDivHeight;
 fontsize = songTitleDivWidth*Black_ItalikAspectRatio * textAdjustment;
 //Aspect Ratio for Lyrics
-float
 //Aspect Ratio for artist name
 
 //Aspect Ratio for about author
 //Fontsize
 
-println(fontsize)
+println(fontsize);
   //
   ;//Drawing Text
 color resetink = #FFFFFF;
@@ -87,7 +95,10 @@ textFont(titleFont, fontsize);
 
 float constantDecrease = 0.99;
 int iWhile = 0;
-while ( textWidth(title) > songTitleDivWidth) {
+
+text( title, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
+text( Lyrics, lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight );
+while ( textWidth(Artistname) > artistNameDivWidth) {
   iWhile++;
   if (iWhile>100) {
     println("Infinite WHILE Loop");
@@ -96,11 +107,8 @@ while ( textWidth(title) > songTitleDivWidth) {
   fontsize *= constantDecrease;
   textFont(titleFont, fontsize);
 }
-
-
-text( title, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
-text( title, lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight );
-text( title, artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight );
-text( title, aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight );
+text( Artistname, artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight );
+text( AboutAthour, aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight );
+text( X, ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
 fill(resetink);
 //
