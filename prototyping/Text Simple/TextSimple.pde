@@ -5,7 +5,7 @@
 fullScreen();
 //
 println(displayWidth, displayHeight);
-int appWidth = displayWidth; 
+int appWidth = displayWidth;
 int appHeight = displayHeight;
 int paperWidth = 131;
 int paperHeight = 197;
@@ -51,26 +51,53 @@ String[] fontList = PFont.list();
 printArray(fontList);
 
 //Fonts from OS
-float fontsize = appHeight;
+float fontsize = 10;
 println ( fontsize );
 PFont titleFont;
 String Black_Italik = "SegoeUIBlack-Italic";
 titleFont = createFont(Black_Italik, fontsize);
+float Fontsize1 = appHeight;
+float Fontsize2 = appHeight;
+float Fontsize3 = appHeight;
+float Fontsize4 = appHeight;
 //
-//Aspect Ratio for Black_Italik
+//Aspect Ratio for Title
+float textAdjustment = 0.9;
 float fontsizeBlack_Italik= 83;
-float divHeightBlack_Italik = songTitleDivWidth;
-float Black_ItalikAspectRatio = fontsize / divHeightBlack_Italik;
-fontsize = songTitleDivWidth*Black_ItalikAspectRatio * 0.75;
+float Black_ItalikdivHeight = songTitleDivWidth;
+float Black_ItalikAspectRatio = fontsize / songTitleDivHeight;
+fontsize = songTitleDivWidth*Black_ItalikAspectRatio * textAdjustment;
+//Aspect Ratio for Lyrics
+float
+//Aspect Ratio for artist name
+
+//Aspect Ratio for about author
+//Fontsize
+
 println(fontsize)
-//
-;//Drawing Text
+  //
+  ;//Drawing Text
 color resetink = #FFFFFF;
 color blackink = #080707;
 color redink = #C4312A;
 color blueink = #113DEA;
 fill(blackink);
+textAlign (CENTER, CENTER);
 textFont(titleFont, fontsize);
+
+float constantDecrease = 0.99;
+int iWhile = 0;
+while ( textWidth(title) > songTitleDivWidth) {
+  iWhile++;
+  if (iWhile>100) {
+    println("Infinite WHILE Loop");
+    exit();
+  }
+  fontsize *= constantDecrease;
+  textFont(titleFont, fontsize);
+}
+
+
 text( title, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
 text( title, lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight );
 text( title, artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight );
