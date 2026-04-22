@@ -33,6 +33,7 @@ void setup() {
   String[] songName = new String[numberOfSongs];
   songName[0]= "Martin & Gina";
   songName[1]= "Rapstar";
+  //
   String songName = "Martin & Gina";
   String songname1 = "Rapstar";
   String soundEffect = "Click";
