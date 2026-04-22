@@ -65,10 +65,7 @@ println ( fontsize );
 PFont titleFont;
 String Black_Italik = "SegoeUIBlack-Italic";
 titleFont = createFont(Black_Italik, fontsize);
-float Fontsize1 = appHeight;
-float Fontsize2 = appHeight;
-float Fontsize3 = appHeight;
-float Fontsize4 = appHeight;
+
 //
 //Aspect Ratio for Title
 float textAdjustment = 0.9;
@@ -96,8 +93,6 @@ textFont(titleFont, fontsize);
 float constantDecrease = 0.99;
 int iWhile = 0;
 
-text( title, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
-text( Lyrics, lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight );
 while ( textWidth(Artistname) > artistNameDivWidth) {
   iWhile++;
   if (iWhile>100) {
@@ -107,8 +102,24 @@ while ( textWidth(Artistname) > artistNameDivWidth) {
   fontsize *= constantDecrease;
   textFont(titleFont, fontsize);
 }
+float Fontsize1 = fontsize*1/2;
+float Fontsize2 = fontsize*1/3;
+float Fontsize3 = fontsize*1/2;
+float Fontsize4 = fontsize*2/3;
+
+text( title, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
+
+textFont(titleFont, Fontsize4);
+text( Lyrics, lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight );
+
+textFont(titleFont, Fontsize3);
 text( Artistname, artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight );
+
+textFont(titleFont, Fontsize2);
 text( AboutAthour, aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight );
+
+
+textFont(titleFont, Fontsize1);
 text( X, ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
 fill(resetink);
 //
