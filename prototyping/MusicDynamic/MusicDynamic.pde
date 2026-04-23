@@ -30,41 +30,58 @@ void setup() {
   String soundEffectsFolder = "Sound Effects";
   String dependanciesFolder = "Dependecies";
   //
-  String[] songName = new String[numberOfSongs];
-  songName[0]= "Martin & Gina";
-  songName[1]= "Rapstar";
-  //
+  String[] songNames = new String[numberOfSongs];
+  songNames[currentSong]= "Martin & Gina";
+  currentSong++;
+  songNames[currentSong]= "Rapstar";
+  currentSong=0;
+
+
   String songName = "Martin & Gina";
   String songname1 = "Rapstar";
   String soundEffect = "Click";
   String fileExtention = ".mp3";
+  //
   String musicDirectory = upArrow + open + upArrow + open + dependanciesFolder + open + musicFolder + open;
   String soundEffectsDirectory = upArrow + open + upArrow + open + dependanciesFolder + open + soundEffectsFolder + open;
-  String file = musicDirectory + songName + fileExtention;
-  playList [ currentSong ] = minim.loadFile( file );
-  file = soundEffectsDirectory + soundEffect + fileExtention;
+  String file;
+  for (int i=0; i<numberOfSongs; i++) {
+    file = soundEffectsDirectory + soundEffect + fileExtention;
+    playList [ currentSong ] = minim.loadFile( file );
+  }
+
+  file = musicDirectory + songName + fileExtention;
   soundEffects[currentSong] = minim.loadFile(file);
   //
-  if ( playList[currentSong]==null || soundEffects[currentSong]==null ) { //ERROR, play list is NULL
-    //See FILE or minim.loadFile
-    println("The Play List or Sound Effects did not load properly");
-    printArray(playList);
-    printArray(soundEffects);
-    /*
-  println("Music Pathway", musicDirectory);
-     println("Full Music File Pathway", file);
-     */
-  } else {
-    playList[currentSong].loop();
-    printArray(playList);
+  for (int i=0; i<numberOfSongs; i++) {
+    if ( playList[i]==null ) { //ERROR, play list is NULL
+      //See FILE or minim.loadFile
+      println("The Play List or Sound Effects did not load properly");
+      printArray(playList);
+      exit();
+      //
+
+      println("Music Pathway", musicDirectory);
+      println("Full Music File Pathway", file);
+    }
   }
+
+ if ( soundEffects[currentSong]==null ) { //ERROR, play list is NULL
+      println("The Sound Effects did not load properly");
+      printArray(soundEffects);
+      exit();
+ }
 }
 
-  //}//End Setup
-  //
-  void draw() {}
-  //
- void mousePressed () {}
- //
- void keyPressed () {}
- //
+//}//End Setup
+//
+void draw() {
+  playList[currentSong].play();
+}
+//
+void mousePressed () {
+}
+//
+void keyPressed () {
+}
+//
