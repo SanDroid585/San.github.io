@@ -22,6 +22,9 @@ AudioPlayer[] playList = new AudioPlayer[ numberOfSongs ];
 AudioMetaData[] playListMetaData = new AudioMetaData[numberOfSongs] ;
 AudioPlayer[] soundEffects = new AudioPlayer[ numberOfSoundEffect ];
 int currentSong = numberOfSongs - numberOfSongs;
+String [] songName = new String[numberOfSongs];
+float songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight;
+color yellowink, whiteink, resetink;
 //
 void setup() {
 
@@ -36,16 +39,15 @@ void setup() {
   int paperHeight = 197;
 
 
-background(190,60,70);
-stroke(120,200,255);
-strokeWeight(3);
-fill(15,15,18);
+  background(190, 60, 70);
+  stroke(120, 200, 255);
+  strokeWeight(3);
+  fill(15, 15, 18);
 
-
-  float songTitleDivX = appWidth * 25 / paperWidth;
-  float songTitleDivY = appHeight * 5 / paperHeight;
-  float songTitleDivWidth = appWidth * 80 / paperWidth;
-  float songTitleDivHeight = appHeight * 12 / paperHeight;
+  songTitleDivX = appWidth * 25 / paperWidth;
+  songTitleDivY = appHeight * 5 / paperHeight;
+  songTitleDivWidth = appWidth * 80 / paperWidth;
+  songTitleDivHeight = appHeight * 12 / paperHeight;
 
   float lyricsDivX = appWidth * 5 / paperWidth;
   float lyricsDivY = appHeight * 25 / paperHeight;
@@ -301,18 +303,17 @@ fill(15,15,18);
 
 
 
-//name is somewhere else
+  //name is somewhere else
   textFont(titleFont, Fontsize3);
   text( Artistname, artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight );
 
-   String AboutAthour = "About author" ;
+  String AboutAthour = "About author" ;
   textFont(titleFont, Fontsize2);
   text( AboutAthour, aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight );
-  
-String X ="X";
- textFont(titleFont, Fontsize1);
-text( X, ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
 
+  String X ="X";
+  textFont(titleFont, Fontsize1);
+  text( X, ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
 }
 //
 
@@ -322,8 +323,15 @@ text( X, ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight
 //}//End Setup
 //
 void draw() {
-  //playList[currentSong].play();
-  //soundEffects[currentSong].play();
+  fill(resetink);
+  rect( songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight);
+  fill(yellowink);
+
+  text(songName[currentSong], songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight);
+  println("here", songTitleDivHeight);
+  if (!playList[currentSong]. isPlaying()) {
+    playList[currentSong].play();
+  }
 }
 //
 void mousePressed () {
@@ -445,11 +453,11 @@ void keyPressed () { /* Simple Play
 
   if ( key=='Y' || key=='y' ) {
     if ( playList[currentSong].isPlaying() ) {
-      
-        playList[currentSong].pause();
-        playList[currentSong].rewind();
-      }
-      currentSong = int(random(numberOfSongs));
+
+      playList[currentSong].pause();
+      playList[currentSong].rewind();
     }
+    currentSong = int(random(numberOfSongs));
+  }
 }
-    //End MAIN Program
+//End MAIN Program
