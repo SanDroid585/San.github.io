@@ -17,7 +17,7 @@ int currentSong = numberOfSongs - numberOfSongs;
 String [] songName = new String[numberOfSongs];
 float songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight;
 color yellowink, whiteink, resetink;
-//
+boolean isPaused= false;
 void setup() {
 
   //Display
@@ -203,15 +203,15 @@ void setup() {
   String soundEffectsFolder = "Sound Effects";
   String dependanciesFolder = "Dependecies";
   //
-  String[] songNames = new String[numberOfSongs];
-  songNames[currentSong]= "Martin & Gina";
+  songName = new String[numberOfSongs];
+  songName[currentSong]= "Martin & Gina";
   currentSong++;
-  songNames[currentSong]= "Rapstar";
+  songName[currentSong]= "Rapstar";
   currentSong=0;
 
 
-  String songName = "Martin & Gina";
-  String songname1 = "Rapstar";
+  String songName1 = "Martin & Gina";
+  String songname2 = "Rapstar";
   String soundEffect = "Click";
   String fileExtention = ".mp3";
   //
@@ -220,7 +220,7 @@ void setup() {
   String file;
   for (int i=0; i<numberOfSongs; i++) {
     //CAUTION remove Readme.txt
-    file = musicDirectory + songNames[i] + fileExtention;
+    file = musicDirectory + songName[i] + fileExtention;
     println("Inside for file:", file);
     playList [ i ] = minim.loadFile( file );
     playListMetaData[ i ] = playList[ i ].getMetaData();
@@ -266,8 +266,8 @@ void setup() {
   PFont titleFont;
   titleFont = createFont(Black_Italik, fontsize);
   //
-  color resetink = #FFFFFF;
-  color yellowink = #FCE800;
+  resetink = #FFFFFF;
+  yellowink = #FCE800;
   color redink = #C4312A;
   color blueink = #113DEA;
   fill(yellowink);
@@ -285,9 +285,6 @@ void setup() {
     fontsize *= constantDecrease;
     textFont(titleFont, fontsize);
   }
-
-  String title = "Martin & Gina" ;
-  text( title, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
 
   String Lyrics = "Lyrics" ;
   textFont(titleFont, Fontsize4);
@@ -312,20 +309,24 @@ void setup() {
 
 
 
-//}//End Setup
+//End Setup
 //
 void draw() {
-  fill(resetink);
-  rect( songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight);
+  fill(#000000);
+  rect(songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight);
+
   fill(yellowink);
 
-  text(songName[currentSong], songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight);
-  println("here", songTitleDivHeight);
-  if (!playList[currentSong]. isPlaying()) {
+  text(songName[currentSong],
+    songTitleDivX,
+    songTitleDivY,
+    songTitleDivWidth,
+    songTitleDivHeight);
+
+  if (!playList[currentSong].isPlaying() && !isPaused) {
     playList[currentSong].play();
   }
 }
-//
 void mousePressed () {
   soundEffects[currentSong].rewind();
   soundEffects[currentSong].play();
@@ -374,12 +375,17 @@ void keyPressed () { /* Simple Play
    */
   //if ( key=='P' || key=='p' ) playList[currentSong].play(); //Simple Play, no double tap possible
   //
-  if ( key=='P' || key=='p' ) playList[currentSong].loop(0); //Simple Play, double tap possible
+  if ( key=='P' || key=='p' ) {//Simple Play, double tap possible
+    playList[currentSong].loop(0);
+    isPaused = false;
+  }
   if ( key=='O' || key=='o' ) { // Pause
     if ( playList[currentSong].isPlaying() ) {
       playList[currentSong].pause();
+      isPaused = true;
     } else {
       playList[currentSong].play();
+      isPaused = false;
     }
   }
   if ( key=='S' | key=='s' ) {

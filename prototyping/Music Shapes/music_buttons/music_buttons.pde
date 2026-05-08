@@ -272,11 +272,11 @@ float P5Y5 = Prev5ButtonDivY + Prev5ButtonDivHeight * 3/4;
 float P5X6 = Prev5ButtonDivX + Prev5ButtonDivWidth * 1/4;
 float P5Y6 = Prev5ButtonDivY + Prev5ButtonDivHeight * 3/4;
 
-//rect(Prev5ButtonDivX, Prev5ButtonDivY, Prev5ButtonDivWidth, Prev5ButtonDivHeight);
-//triangle(Prev5TriX1, Prev5TriY1, Prev5TriX2, Prev5TriY2, Prev5TriX3, Prev5TriY3);
+rect(Prev5ButtonDivX, Prev5ButtonDivY, Prev5ButtonDivWidth, Prev5ButtonDivHeight);
+triangle(Prev5TriX1, Prev5TriY1, Prev5TriX2, Prev5TriY2, Prev5TriX3, Prev5TriY3);
 
-//line(P5X1, P5Y1, P5X2, P5Y2);
-//line(P5X1, P5Y1, P5X3, P5Y3);
-//line(P5X3, P5Y3, P5X4, P5Y4);
-//line(P5X4, P5Y4, P5X6, P5Y6);
-//line(P5X5, P5Y5, P5X6, P5Y6);
+line(P5X1, P5Y1, P5X2, P5Y2);
+line(P5X1, P5Y1, P5X3, P5Y3);
+line(P5X3, P5Y3, P5X4, P5Y4);
+line(P5X4, P5Y4, P5X6, P5Y6);
+line(P5X5, P5Y5, P5X6, P5Y6);
