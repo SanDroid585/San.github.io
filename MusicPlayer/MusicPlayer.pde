@@ -18,8 +18,8 @@ String [] songName = new String[numberOfSongs];
 float songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight;
 color yellowink, whiteink, resetink;
 boolean isPaused= false;
+//
 void setup() {
-
   //Display
   fullScreen(); //displayWidth //displayHeight
   int appWidth = displayWidth;
@@ -29,7 +29,6 @@ void setup() {
 
   int paperWidth = 131;
   int paperHeight = 197;
-
 
   background(190, 60, 70);
   stroke(120, 200, 255);
@@ -92,15 +91,15 @@ void setup() {
   float previousSongDivWidth = appWidth * 12 / paperWidth;
   float previousSongDivHeight = appHeight * 12 / paperHeight;
 
-  float rewindDivX = appWidth * 22 / paperWidth;
-  float rewindDivY = appHeight * 105 / paperHeight;
-  float rewindDivWidth = appWidth * 12 / paperWidth;
-  float rewindDivHeight = appHeight * 12 / paperHeight;
-
-  float back5DivX = appWidth * 81 / paperWidth;
+  float back5DivX = appWidth * 22 / paperWidth;
   float back5DivY = appHeight * 105 / paperHeight;
   float back5DivWidth = appWidth * 12 / paperWidth;
   float back5DivHeight = appHeight * 12 / paperHeight;
+
+  float nextSongDivX = appWidth * 81 / paperWidth;
+  float nextSongDivY = appHeight * 105 / paperHeight;
+  float nextSongDivWidth = appWidth * 12 / paperWidth;
+  float nextSongDivHeight = appHeight * 12 / paperHeight;
 
   float pauseDivX = appWidth * 51 / paperWidth;
   float pauseDivY = appHeight * 102 / paperHeight;
@@ -122,17 +121,14 @@ void setup() {
   float skip5DivWidth = appWidth * 12 / paperWidth;
   float skip5DivHeight = appHeight * 12 / paperHeight;
 
-  float nextSongDivX = appWidth * 33 / paperWidth;
-  float nextSongDivY = appHeight * 128 / paperHeight;
-  float nextSongDivWidth = appWidth * 12 / paperWidth;
-  float nextSongDivHeight = appHeight * 12 / paperHeight;
+ 
 
   float loopDivX = appWidth * 13 / paperWidth;
   float loopDivY = appHeight * 128 / paperHeight;
   float loopDivWidth = appWidth * 12 / paperWidth;
   float loopDivHeight = appHeight * 12 / paperHeight;
 
-  float stopLoopDivX = appWidth * 52 / paperWidth;
+  float stopLoopDivX = appWidth * 42 / paperWidth;
   float stopLoopDivY = appHeight * 128 / paperHeight;
   float stopLoopDivWidth = appWidth * 12 / paperWidth;
   float stopLoopDivHeight = appHeight * 12 / paperHeight;
@@ -155,7 +151,7 @@ void setup() {
   float playlistsDivX = appWidth * 90 / paperWidth;
   float playlistsDivY = appHeight * 160 / paperHeight;
   float playlistsDivWidth = appWidth * 25 / paperWidth;
-  float playlistsDivHeight = appHeight * 25 / paperHeight;
+  float playlistsDivHeight = appHeight * 25 / paperHeight;  
 
 
 
@@ -166,7 +162,9 @@ void setup() {
   rect(menuButtonDivX, menuButtonDivY, menuButtonDivWidth, menuButtonDivHeight);
 
   rect(artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight);
+
   rect(artistPictureDivX, artistPictureDivY, artistPictureDivWidth, artistPictureDivHeight);
+  fill(15, 15, 18);
   rect(aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight);
 
   rect(controlsBoxDivX, controlsBoxDivY, controlsBoxDivWidth, controlsBoxDivHeight);
@@ -187,9 +185,10 @@ void setup() {
 
   rect(playDivX, playDivY, playDivWidth, playDivHeight);
   rect(stopDivX, stopDivY, stopDivWidth, stopDivHeight);
-  rect(rewindDivX, rewindDivY, rewindDivWidth, rewindDivHeight);
+ 
   rect(loopDivX, loopDivY, loopDivWidth, loopDivHeight);
   rect(stopLoopDivX, stopLoopDivY, stopLoopDivWidth, stopLoopDivHeight);
+
 
 
 
@@ -266,13 +265,14 @@ void setup() {
   PFont titleFont;
   titleFont = createFont(Black_Italik, fontsize);
   //
-  resetink = #FFFFFF;
+  resetink = #000000;
   yellowink = #FCE800;
   color redink = #C4312A;
   color blueink = #113DEA;
-  fill(yellowink);
+ fill(yellowink);
   textAlign (CENTER, CENTER);
-
+ 
+  
   float constantDecrease = 0.99;
   int iWhile = 0;
   textFont(titleFont, fontsize);
@@ -289,10 +289,11 @@ void setup() {
   String Lyrics = "Lyrics" ;
   textFont(titleFont, Fontsize4);
   text( Lyrics, lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight );
+  fill(resetink);
 
-
-
+  //IMGAGE
   //name is somewhere else
+  fill(yellowink);
   textFont(titleFont, Fontsize3);
   text( Artistname, artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight );
 
@@ -303,9 +304,383 @@ void setup() {
   String X ="X";
   textFont(titleFont, Fontsize1);
   text( X, ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
-}
-//
+  fill(resetink);
 
+  String upArow = "..";
+  String dependeciesFolder = "Dependecies";
+  String imagesFolder = "Images";
+  String imageName1 = "album cover Polo g";
+  String fileExension = ".jpg";
+  open = "/";
+
+  //
+  //Concatenation
+  String imageDirectory = upArow + open + upArow + open + dependeciesFolder + open + imagesFolder + open;
+  String pathway = imageDirectory + imageName1 + fileExension;
+
+  //
+  PImage image1 = loadImage( pathway );
+  int imageWidth = 587;
+  int imageHeight = 360;
+
+  //
+  songCoverDivX = appWidth * 60 / paperWidth;
+  songCoverDivY = appHeight * 25 / paperHeight;
+  songCoverDivWidth = appWidth * 66 / paperWidth;
+  songCoverDivHeight = appHeight * 60 / paperHeight;
+
+
+  rect(songCoverDivX, songCoverDivY, songCoverDivWidth, songCoverDivHeight);
+
+  //
+  //Image Aspect Ratio Algorithm
+
+  //Ternary Operator
+  float imageAspectRatio_GreaterOne = ( imageWidth > imageHeight )
+    ? float(imageWidth) / float(imageHeight)
+    : float(imageHeight) / float(imageWidth);
+
+
+  float imageWidthAdjusted = songCoverDivWidth;
+
+
+  float imageHeightAdjusted = ( imageWidth >= songCoverDivWidth )
+    ? imageWidthAdjusted / imageAspectRatio_GreaterOne
+    : imageWidthAdjusted * imageAspectRatio_GreaterOne;
+
+  while ( imageHeightAdjusted > songCoverDivHeight ) {
+    imageWidthAdjusted *= 0.99;
+    imageHeightAdjusted = imageWidthAdjusted / imageAspectRatio_GreaterOne;
+  }
+
+
+  image(image1, songCoverDivX, songCoverDivY, imageWidthAdjusted, imageHeightAdjusted);
+
+//Music Buttons
+float newPlayTriX1 = playDivX + playDivWidth * 1/4;
+float newPlayTriY1 = playDivY + playDivHeight * 1/4;
+
+float newPlayTriX2 = playDivX + playDivWidth * 3/4;
+float newPlayTriY2 = playDivY + playDivHeight * 1/2;
+
+float newPlayTriX3 = playDivX + playDivWidth * 1/4;
+float newPlayTriY3 = playDivY + playDivHeight * 3/4;
+
+
+triangle(newPlayTriX1, newPlayTriY1, newPlayTriX2, newPlayTriY2, newPlayTriX3, newPlayTriY3);
+
+
+
+float PauseLeftX = pauseDivX + pauseDivWidth * 1/4;
+float PauseLeftY = pauseDivY + pauseDivHeight * 1/4;
+float PauseLeftWidth = pauseDivWidth * 1/8;
+float PauseLeftHeight = pauseDivHeight * 1/2;
+
+
+float PauseRightX = pauseDivX + pauseDivWidth * 4/8;
+float PauseRightY = pauseDivY + pauseDivHeight * 1/4;
+float PauseRightWidth = pauseDivWidth * 1/8;
+float PauseRightHeight = pauseDivHeight * 1/2;
+
+
+
+
+
+
+rect(PauseLeftX, PauseLeftY, PauseLeftWidth, PauseLeftHeight);
+rect(PauseRightX, PauseRightY, PauseRightWidth, PauseRightHeight);
+
+
+float StopX = stopDivX + stopDivWidth * 1/7;
+float StopY = stopDivY + stopDivHeight * 1/2;
+float StopWidth = stopDivWidth * 1/2;
+float StopHeight = stopDivHeight * 1/2;
+
+rect(stopDivX, stopDivY, stopDivWidth, stopDivHeight);
+rect(StopX, StopY, StopWidth, StopHeight);
+
+
+float NextTriX1 = nextSongDivX + nextSongDivWidth * 1/4;
+float NextTriY1 = nextSongDivY + nextSongDivHeight * 1/4;
+
+float NextTriX2 = nextSongDivX + nextSongDivWidth * 3/4;
+float NextTriY2 = nextSongDivY + nextSongDivHeight * 1/2;
+
+float NextTriX3 = nextSongDivX + nextSongDivWidth * 1/4;
+float NextTriY3 = nextSongDivY + nextSongDivHeight * 3/4;
+
+float NextBarX = nextSongDivX + nextSongDivWidth * 3/4;
+float NextBarY = nextSongDivY + nextSongDivHeight * 1/4;
+float NextBarWidth = nextSongDivWidth * 1/10;
+float NextBarHeight = nextSongDivHeight * 1/2;
+
+triangle(NextTriX1, NextTriY1, NextTriX2, NextTriY2, NextTriX3, NextTriY3);
+rect(NextBarX, NextBarY, NextBarWidth, NextBarHeight);
+
+
+float PrevTriX1 = previousSongDivX + previousSongDivWidth * 3/4;
+float PrevTriY1 = previousSongDivY + previousSongDivHeight * 1/4;
+
+float PrevTriX2 = previousSongDivX + previousSongDivWidth * 1/4;
+float PrevTriY2 = previousSongDivY + previousSongDivHeight * 1/2;
+
+float PrevTriX3 = previousSongDivX + previousSongDivWidth * 3/4;
+float PrevTriY3 = previousSongDivY + previousSongDivHeight * 3/4;
+
+float PrevBarX = previousSongDivX + previousSongDivWidth * 1/4;
+float PrevBarY = previousSongDivY + previousSongDivHeight * 1/4;
+float PrevBarWidth = previousSongDivWidth * 1/10;
+float PrevBarHeight = previousSongDivHeight * 1/2;
+
+triangle(PrevTriX1, PrevTriY1, PrevTriX2, PrevTriY2, PrevTriX3, PrevTriY3);
+rect(PrevBarX, PrevBarY, PrevBarWidth, PrevBarHeight);
+
+
+
+
+
+
+
+
+float LoopX1 = loopDivX + loopDivWidth * 1/4;
+float LoopY1 = loopDivY + loopDivHeight * 1/4;
+
+float LoopX2 = loopDivX + loopDivWidth * 3/4;
+float LoopY2 = loopDivY + loopDivHeight * 1/4;
+
+
+float LoopX3 = loopDivX + loopDivWidth * 3/4;
+float LoopY3 = loopDivY + loopDivHeight * 3/4;
+
+float LoopX4 = loopDivX + loopDivWidth * 1/4;
+float LoopY4 = loopDivY + loopDivHeight * 3/4;
+
+line(LoopX1, LoopY1, LoopX2, LoopY2);
+line(LoopX2, LoopY2, LoopX3, LoopY3);
+line(LoopX3, LoopY3, LoopX4, LoopY4);
+line(LoopX4, LoopY4, LoopX1, LoopY1);
+
+
+float stopLoopX1 = stopLoopDivX + stopLoopDivWidth * 1/4;
+float stopLoopY1 = stopLoopDivY + stopLoopDivHeight * 1/4;
+
+float stopLoopX2 = stopLoopDivX + stopLoopDivWidth * 3/4;
+float stopLoopY2 = stopLoopDivY + stopLoopDivHeight * 1/4;
+
+
+float stopLoopX3 = stopLoopDivX + stopLoopDivWidth * 3/4;
+float stopLoopY3 = stopLoopDivY + stopLoopDivHeight * 3/4;
+
+float stopLoopX4 = stopLoopDivX + stopLoopDivWidth * 1/4;
+float stopLoopY4 = stopLoopDivY + stopLoopDivHeight * 3/4;
+
+line(LoopX1, LoopY1, LoopX2, LoopY2);
+line(LoopX2, LoopY2, LoopX3, LoopY3);
+line(LoopX3, LoopY3, LoopX4, LoopY4);
+line(LoopX4, LoopY4, LoopX1, LoopY1);
+
+float StopLoopX1 = stopLoopDivX + stopLoopDivWidth * 1/4;
+float StopLoopY1 = stopLoopDivY + stopLoopDivHeight * 1/4;
+
+float StopLoopX2 = stopLoopDivX + stopLoopDivWidth * 3/4;
+float StopLoopY2 = stopLoopDivY + stopLoopDivHeight * 3/4;
+
+line(StopLoopX1, StopLoopY1, StopLoopX2, StopLoopY2);
+
+
+
+float Skip5TriX1 = skip5DivX + skip5DivWidth * 1/4;
+float Skip5TriY1 = skip5DivY + skip5DivHeight * 1/4;
+
+float Skip5TriX2 = skip5DivX + skip5DivWidth * 3/4;
+float Skip5TriY2 = skip5DivY + skip5DivHeight * 1/2;
+
+float Skip5TriX3 = skip5DivX + skip5DivWidth * 1/4;
+float Skip5TriY3 = skip5DivY + skip5DivHeight * 3/4;
+
+
+float FiveX1 = skip5DivX + skip5DivWidth * 3/4;
+float FiveY1 = skip5DivY + skip5DivHeight * 1/4;
+
+float FiveX2 = skip5DivX + skip5DivWidth * 7/8;
+float FiveY2 = skip5DivY + skip5DivHeight * 1/4;
+
+float FiveX3 = skip5DivX + skip5DivWidth * 3/4;
+float FiveY3 = skip5DivY + skip5DivHeight * 1/2;
+
+float FiveX4 = skip5DivX + skip5DivWidth * 7/8;
+float FiveY4 = skip5DivY + skip5DivHeight * 1/2;
+
+float FiveX5 = skip5DivX + skip5DivWidth * 3/4;
+float FiveY5 = skip5DivY + skip5DivHeight * 3/4;
+
+float FiveX6 = skip5DivX + skip5DivWidth * 7/8;
+float FiveY6 = skip5DivY + skip5DivHeight * 3/4;
+
+
+triangle(Skip5TriX1, Skip5TriY1, Skip5TriX2, Skip5TriY2, Skip5TriX3, Skip5TriY3);
+
+
+line(FiveX1, FiveY1, FiveX2, FiveY2); //top
+line(FiveX1, FiveY1, FiveX3, FiveY3); //down left
+line(FiveX3, FiveY3, FiveX4, FiveY4); //middle
+line(FiveX4, FiveY4, FiveX6, FiveY6); //down right
+line(FiveX5, FiveY5, FiveX6, FiveY6); //bottom
+
+
+float Prev5TriX1 = back5DivX + back5DivWidth * 3/4;
+float Prev5TriY1 = back5DivY + back5DivHeight * 1/4;
+
+float Prev5TriX2 = back5DivX + back5DivWidth * 1/4;
+float Prev5TriY2 = back5DivY + back5DivHeight * 1/2;
+
+float Prev5TriX3 = back5DivX + back5DivWidth * 3/4;
+float Prev5TriY3 = back5DivY + back5DivHeight * 3/4;
+
+
+
+float P5X1 = back5DivX + back5DivWidth * 1/8;
+float P5Y1 = back5DivY + back5DivHeight * 1/4;
+
+float P5X2 = back5DivX + back5DivWidth * 1/4;
+float P5Y2 = back5DivY + back5DivHeight * 1/4;
+
+float P5X3 = back5DivX + back5DivWidth * 1/8;
+float P5Y3 = back5DivY + back5DivHeight * 1/2;
+
+float P5X4 = back5DivX + back5DivWidth * 1/4;
+float P5Y4 = back5DivY + back5DivHeight * 1/2;
+
+float P5X5 = back5DivX + back5DivWidth * 1/8;
+float P5Y5 = back5DivY + back5DivHeight * 3/4;
+
+float P5X6 = back5DivX + back5DivWidth * 1/4;
+float P5Y6 = back5DivY + back5DivHeight * 3/4;
+
+
+triangle(Prev5TriX1, Prev5TriY1, Prev5TriX2, Prev5TriY2, Prev5TriX3, Prev5TriY3);
+
+line(P5X1, P5Y1, P5X2, P5Y2);
+line(P5X1, P5Y1, P5X3, P5Y3);
+line(P5X3, P5Y3, P5X4, P5Y4);
+line(P5X4, P5Y4, P5X6, P5Y6);
+line(P5X5, P5Y5, P5X6, P5Y6);
+
+
+float favTopX = favouritesDivX + favouritesDivWidth * 1/2;
+float favTopY = favouritesDivY + favouritesDivHeight * 1/6;
+
+float favRightTopX = favouritesDivX + favouritesDivWidth * 13/16;
+float favRightTopY = favouritesDivY + favouritesDivHeight * 3/8;
+
+float favRightBottomX = favouritesDivX + favouritesDivWidth * 13/16;
+float favRightBottomY = favouritesDivY + favouritesDivHeight * 11/16;
+
+float favBottomX = favouritesDivX + favouritesDivWidth * 1/2;
+float favBottomY = favouritesDivY + favouritesDivHeight * 13/16;
+
+float favLeftBottomX = favouritesDivX + favouritesDivWidth * 3/16;
+float favLeftBottomY = favouritesDivY + favouritesDivHeight * 11/16;
+
+float favLeftTopX = favouritesDivX + favouritesDivWidth * 3/16;
+float favLeftTopY = favouritesDivY + favouritesDivHeight * 3/8;
+
+
+line(favTopX, favTopY, favRightBottomX, favRightBottomY);
+line(favRightBottomX, favRightBottomY, favLeftTopX, favLeftTopY);
+line(favLeftTopX, favLeftTopY, favRightTopX, favRightTopY);
+line(favRightTopX, favRightTopY, favLeftBottomX, favLeftBottomY);
+line(favLeftBottomX, favLeftBottomY, favTopX, favTopY);
+
+
+
+
+float noteStemTopX = songsDivX + songsDivWidth * 5/8;
+float noteStemTopY = songsDivY + songsDivHeight * 1/4;
+
+float noteStemBottomX = songsDivX + songsDivWidth * 5/8;
+float noteStemBottomY = songsDivY + songsDivHeight * 11/16;
+
+line(
+  noteStemTopX, noteStemTopY,
+  noteStemBottomX, noteStemBottomY
+);
+
+
+
+float noteFlagX1 = songsDivX + songsDivWidth * 5/8;
+float noteFlagY1 = songsDivY + songsDivHeight * 1/4;
+
+float noteFlagX2 = songsDivX + songsDivWidth * 13/16;
+float noteFlagY2 = songsDivY + songsDivHeight * 3/8;
+
+line(
+  noteFlagX1, noteFlagY1,
+  noteFlagX2, noteFlagY2
+);
+
+
+
+float noteCircleX = songsDivX + songsDivWidth * 1/2;
+float noteCircleY = songsDivY + songsDivHeight * 3/4;
+
+ellipse(
+  noteCircleX,
+  noteCircleY,
+  songsDivWidth * 1/5,
+  songsDivHeight * 1/5
+);
+
+
+
+
+line(
+  playlistsDivX + playlistsDivWidth * 1/4,
+  playlistsDivY + playlistsDivHeight * 1/4,
+
+  playlistsDivX + playlistsDivWidth * 3/4,
+  playlistsDivY + playlistsDivHeight * 1/4
+);
+
+
+
+line(
+  playlistsDivX + playlistsDivWidth * 1/4,
+  playlistsDivY + playlistsDivHeight * 1/2,
+
+  playlistsDivX + playlistsDivWidth * 5/8,
+  playlistsDivY + playlistsDivHeight * 1/2
+);
+
+
+
+line(
+  playlistsDivX + playlistsDivWidth * 1/4,
+  playlistsDivY + playlistsDivHeight * 3/4,
+
+  playlistsDivX + playlistsDivWidth * 3/4,
+  playlistsDivY + playlistsDivHeight * 3/4
+);
+
+
+// PLAY TRIANGLE
+float playListTriX1 = playlistsDivX + playlistsDivWidth * 11/16;
+float playListTriY1 = playlistsDivY + playlistsDivHeight * 3/8;
+
+float playListTriX2 = playlistsDivX + playlistsDivWidth * 11/16;
+float playListTriY2 = playlistsDivY + playlistsDivHeight * 5/8;
+
+float playListTriX3 = playlistsDivX + playlistsDivWidth * 7/8;
+float playListTriY3 = playlistsDivY + playlistsDivHeight * 1/2;
+
+triangle(
+  playListTriX1, playListTriY1,
+  playListTriX2, playListTriY2,
+  playListTriX3, playListTriY3
+);
+
+//
+}
 
 
 
@@ -406,7 +781,6 @@ void keyPressed () { /* Simple Play
       playList[currentSong].mute();
     }
   }
-  if ( key==CODED || keyCode==ESC ) exit();
   if ( key=='Q' || key=='q' ) exit();
   //
   if ( key=='N' || key=='n' ) {
