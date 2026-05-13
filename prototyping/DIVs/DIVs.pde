@@ -63,10 +63,10 @@ fullScreen();
   float previousSongDivWidth = appWidth * 12 / paperWidth;
   float previousSongDivHeight = appHeight * 12 / paperHeight;
   
-  float rewindDivX = appWidth * 22 / paperWidth;
-  float rewindDivY = appHeight * 105 / paperHeight;
-  float rewindDivWidth = appWidth * 12 / paperWidth;
-  float rewindDivHeight = appHeight * 12 / paperHeight;
+  float restartSongDivX = appWidth * 22 / paperWidth;
+  float restartSongDivY = appHeight * 105 / paperHeight;
+  float restartSongDivWidth = appWidth * 12 / paperWidth;
+  float restartSongDivHeight = appHeight * 12 / paperHeight;
   
   float back5DivX = appWidth * 81 / paperWidth;
   float back5DivY = appHeight * 105 / paperHeight;
@@ -161,6 +161,6 @@ rect(playlistsDivX, playlistsDivY, playlistsDivWidth, playlistsDivHeight);
 
 rect(playDivX, playDivY, playDivWidth, playDivHeight);
 rect(stopDivX, stopDivY, stopDivWidth, stopDivHeight);
-rect(rewindDivX, rewindDivY, rewindDivWidth, rewindDivHeight);
+rect(restartSongDivX, restartSongDivY, restartSongDivWidth, restartSongDivHeight);
 rect(loopDivX, loopDivY, loopDivWidth, loopDivHeight);
 rect(stopLoopDivX, stopLoopDivY, stopLoopDivWidth, stopLoopDivHeight);
