@@ -18,7 +18,10 @@ String [] songName = new String[numberOfSongs];
 float songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight;
 color yellowink, whiteink, resetink;
 boolean isPaused= false;
+boolean loopOnce = true;
+boolean activateLoop ;
 
+float LoopinfiniteDivX, LoopinfiniteDivY, LoopinfiniteDivWidth, LoopinfiniteDivHeight;
 float previousSongDivX, previousSongDivY, previousSongDivWidth, previousSongDivHeight; //
 float back5DivX, back5DivY, back5DivWidth, back5DivHeight; //
 float nextSongDivX, nextSongDivY, nextSongDivWidth, nextSongDivHeight; //
@@ -147,10 +150,10 @@ void setup() {
   stopLoopDivWidth = appWidth * 12 / paperWidth;
   stopLoopDivHeight = appHeight * 12 / paperHeight; //
 
-  float  volumeDivX = appWidth * 13 / paperWidth;
-  float volumeDivY = appHeight * 145 / paperHeight;
-  float  volumeDivWidth = appWidth * 70 / paperWidth;
-  float  volumeDivHeight = appHeight * 9 / paperHeight;
+  LoopinfiniteDivX = appWidth * 32 / paperWidth;
+  LoopinfiniteDivY = appHeight * 145 / paperHeight;
+  LoopinfiniteDivWidth = appWidth * 32 / paperWidth;
+  LoopinfiniteDivHeight = appHeight * 9 / paperHeight;
 
   float  favouritesDivX = appWidth * 10 / paperWidth;
   float  favouritesDivY = appHeight * 160 / paperHeight;
@@ -193,7 +196,7 @@ void setup() {
   rect(skip5DivX, skip5DivY, skip5DivWidth, skip5DivHeight);
   rect(nextSongDivX, nextSongDivY, nextSongDivWidth, nextSongDivHeight);
 
-  rect(volumeDivX, volumeDivY, volumeDivWidth, volumeDivHeight);
+  rect(LoopinfiniteDivX, LoopinfiniteDivY, LoopinfiniteDivWidth, LoopinfiniteDivHeight);
 
   rect(ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
 
@@ -505,6 +508,68 @@ void setup() {
 
 
 
+float menuLine1X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
+float menuLine1Y1 = menuButtonDivY + menuButtonDivHeight * 1/4;
+
+float menuLine1X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
+float menuLine1Y2 = menuButtonDivY + menuButtonDivHeight * 1/4;
+
+
+
+float menuLine2X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
+float menuLine2Y1 = menuButtonDivY + menuButtonDivHeight * 1/2;
+
+float menuLine2X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
+float menuLine2Y2 = menuButtonDivY + menuButtonDivHeight * 1/2;
+
+
+
+float menuLine3X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
+float menuLine3Y1 = menuButtonDivY + menuButtonDivHeight * 3/4;
+
+float menuLine3X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
+float menuLine3Y2 = menuButtonDivY + menuButtonDivHeight * 3/4;
+
+
+
+line(menuLine1X1, menuLine1Y1, menuLine1X2, menuLine1Y2);
+line(menuLine2X1, menuLine2Y1, menuLine2X2, menuLine2Y2);
+line(menuLine3X1, menuLine3Y1, menuLine3X2, menuLine3Y2);
+
+
+
+
+
+float searchCircleX = searchButtonDivX + searchButtonDivWidth * 2/5;
+float searchCircleY = searchButtonDivY + searchButtonDivHeight * 2/5;
+
+float searchCircleSize =
+  (searchButtonDivWidth + searchButtonDivHeight) / 5;
+
+
+
+float searchHandleX1 = searchButtonDivX + searchButtonDivWidth * 4/8;
+float searchHandleY1 = searchButtonDivY + searchButtonDivHeight * 4/8;
+
+float searchHandleX2 = searchButtonDivX + searchButtonDivWidth * 3/4;
+float searchHandleY2 = searchButtonDivY + searchButtonDivHeight * 3/4;
+
+
+
+ellipse(
+  searchCircleX,
+  searchCircleY,
+  searchCircleSize,
+  searchCircleSize
+);
+
+line(
+  searchHandleX1,
+  searchHandleY1,
+  searchHandleX2,
+  searchHandleY2
+);
+
 
 
 
@@ -527,6 +592,45 @@ void setup() {
   line(LoopX2, LoopY2, LoopX3, LoopY3);
   line(LoopX3, LoopY3, LoopX4, LoopY4);
   line(LoopX4, LoopY4, LoopX1, LoopY1);
+  
+
+float LoopInfiniteX1 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/4;
+float LoopInfiniteY1 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/4;
+
+float LoopInfiniteX2 = LoopinfiniteDivX + LoopinfiniteDivWidth * 3/4;
+float LoopInfiniteY2 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/4;
+
+float LoopInfiniteX3 = LoopinfiniteDivX + LoopinfiniteDivWidth * 3/4;
+float LoopInfiniteY3 = LoopinfiniteDivY + LoopinfiniteDivHeight * 3/4;
+
+float LoopInfiniteX4 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/4;
+float LoopInfiniteY4 = LoopinfiniteDivY + LoopinfiniteDivHeight * 3/4;
+
+
+
+line(LoopInfiniteX1, LoopInfiniteY1, LoopInfiniteX2, LoopInfiniteY2);
+line(LoopInfiniteX2, LoopInfiniteY2, LoopInfiniteX3, LoopInfiniteY3);
+line(LoopInfiniteX3, LoopInfiniteY3, LoopInfiniteX4, LoopInfiniteY4);
+line(LoopInfiniteX4, LoopInfiniteY4, LoopInfiniteX1, LoopInfiniteY1);
+
+
+float OneX1 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/2;
+float OneY1 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/3;
+
+// BOTTOM OF 1
+float OneX2 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/2;
+float OneY2 = LoopinfiniteDivY + LoopinfiniteDivHeight * 2/3;
+
+
+float OneTopX = LoopinfiniteDivX + LoopinfiniteDivWidth * 7/16;
+float OneTopY = LoopinfiniteDivY + LoopinfiniteDivHeight * 7/16;
+
+
+
+line(OneTopX, OneTopY, OneX1, OneY1);
+line(OneX1, OneY1, OneX2, OneY2);
+  
+  
 
 
   float stopLoopX1 = stopLoopDivX + stopLoopDivWidth * 1/4;
@@ -770,12 +874,26 @@ void draw() {
     playList[currentSong].play();
   }
 }
+
+
+
 void mousePressed () {
-  soundEffects[currentSong].rewind();
-  soundEffects[currentSong].play();
+  
+ 
+
+ soundEffects[0].rewind();
+soundEffects[0].play();
+
+
+ 
+  
+
+  
+
 
   if ( mouseX > playDivX && mouseX <  playDivX +  playDivWidth && mouseY >  playDivY && mouseY <  playDivY +  playDivHeight ) {
     playList[currentSong].loop(0);
+
     isPaused = false;
   }
   if ( mouseX > pauseDivX && mouseX <  pauseDivX +  pauseDivWidth && mouseY >  pauseDivY && mouseY <  pauseDivY +  pauseDivHeight ) {
@@ -802,7 +920,7 @@ void mousePressed () {
     }
   }
   if ( mouseX > back5DivX && mouseX <  back5DivX +  back5DivWidth && mouseY >  back5DivY && mouseY <  back5DivY +  back5DivHeight ) {
-    if ( key=='R' || key=='r' ) playList[currentSong].skip( -5000 );
+    playList[currentSong].skip( -5000 );
   }
   if ( mouseX > nextSongDivX && mouseX <  nextSongDivX +  nextSongDivWidth && mouseY >  nextSongDivY && mouseY <  nextSongDivY +  nextSongDivHeight ) {
     if ( playList[currentSong].isPlaying() ) {
@@ -827,19 +945,34 @@ void mousePressed () {
     if ( playList[currentSong].isPlaying() ) {
       playList[currentSong].pause(); //single tap
       playList[currentSong].rewind();
+      isPaused = true;
     } else {
+      isPaused = false;
       playList[currentSong].play();//double tap
     }
   }
-  if ( mouseX > DIV0sDivX && mouseX <  DIV0sDivX +  DIV0sDivWidth && mouseY >  DIV0sDivY && mouseY <  DIV0sDivY +  DIV0sDivHeight ) {
+  if ( mouseX > skip5DivX && mouseX <  skip5DivX +  skip5DivWidth && mouseY >  skip5DivY && mouseY <  skip5DivY +  skip5DivHeight ) {
+    playList[currentSong].skip( 5000 );
   }
-  if ( mouseX > DIVDivX && mouseX <  DIVDivX +  DIVDivWidth && mouseY >  DIVDivY && mouseY <  DIVDivY +  DIVDivHeight ) {
+  if ( mouseX > restartSongDivX && mouseX <  restartSongDivX +  restartSongDivWidth && mouseY >  restartSongDivY && mouseY <  restartSongDivY +  restartSongDivHeight ) {
+    playList[currentSong].rewind();
   }
-  if ( mouseX > DIVDivX && mouseX <  DIVDivX +  DIVDivWidth && mouseY >  DIVDivY && mouseY <  DIVDivY +  DIVDivHeight ) {
+
+  if ( mouseX > loopDivX && mouseX < loopDivX + loopDivWidth && mouseY > loopDivY && mouseY < loopDivY + loopDivHeight ) {
+    playList[currentSong].loop(1);
   }
-  if ( mouseX > DIVDivX && mouseX <  DIVDivX +  DIVDivWidth && mouseY >  DIVDivY && mouseY <  DIVDivY +  DIVDivHeight ) {
+  if ( mouseX > LoopinfiniteDivX && mouseX < LoopinfiniteDivX + LoopinfiniteDivWidth && mouseY > LoopinfiniteDivY && mouseY < LoopinfiniteDivY + LoopinfiniteDivHeight ) {
+    playList[currentSong].loop();
   }
-  if ( mouseX > DIVDivX && mouseX <  DIVDivX +  DIVDivWidth && mouseY >  DIVDivY && mouseY <  DIVDivY +  DIVDivHeight ) {
+
+
+  if ( mouseX > stopLoopDivX && mouseX <  stopLoopDivX +  stopLoopDivWidth && mouseY >  stopLoopDivY && mouseY <  stopLoopDivY +  stopLoopDivHeight ) {
+    playList[currentSong].pause();
+    playList[currentSong].isPlaying();
+   
+  }
+  if ( mouseX > ExitButtonDivX && mouseX <  ExitButtonDivX +  ExitButtonDivWidth && mouseY >  ExitButtonDivY && mouseY <  ExitButtonDivY +  ExitButtonDivHeight ) {
+    exit();
   }
 }
 // End Mouse Pressed
@@ -906,7 +1039,9 @@ void keyPressed () { /* Simple Play
       playList[currentSong].rewind(); //double tap
     }
   }
-  if ( key=='L' || key=='l' ) playList[currentSong].loop(1);
+  if ( key=='L' || key=='l' ) {
+    playList[currentSong].loop(1);
+  }
   if ( key=='K' || key=='k' ) playList[currentSong].loop();
   if ( key=='F' || key=='f' ) playList[currentSong].skip( 5000 );
   if ( key=='R' || key=='r' ) playList[currentSong].skip( -5000 );
