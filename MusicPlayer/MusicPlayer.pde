@@ -34,7 +34,7 @@ float loopDivX, loopDivY, loopDivWidth, loopDivHeight;
 float stopLoopDivX, stopLoopDivY, stopLoopDivWidth, stopLoopDivHeight;
 float ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight;
 float blackExitDivX, blackExitDivY, blackExitDivWidth, blackExitDivHeight;
- float menuButtonDivX, menuButtonDivY, menuButtonDivWidth, menuButtonDivHeight;
+float menuButtonDivX, menuButtonDivY, menuButtonDivWidth, menuButtonDivHeight;
 //
 void setup() {
   //Display
@@ -75,10 +75,10 @@ void setup() {
   float searchButtonDivWidth = appWidth * 12 / paperWidth;
   float searchButtonDivHeight = appHeight * 12 / paperHeight;
 
-   menuButtonDivX = appWidth * 5 / paperWidth;
-   menuButtonDivY = appHeight * 5 / paperHeight;
-   menuButtonDivWidth = appWidth * 12 / paperWidth;
-   menuButtonDivHeight = appHeight * 12 / paperHeight;
+  menuButtonDivX = appWidth * 5 / paperWidth;
+  menuButtonDivY = appHeight * 5 / paperHeight;
+  menuButtonDivWidth = appWidth * 12 / paperWidth;
+  menuButtonDivHeight = appHeight * 12 / paperHeight;
 
   float artistNameDivX = appWidth * 95 / paperWidth;
   float artistNameDivY = appHeight * 95 / paperHeight;
@@ -878,21 +878,16 @@ void draw() {
   }
 
 
- if ( mouseX > menuButtonDivX && mouseX < menuButtonDivX + menuButtonDivWidth && mouseY > menuButtonDivY && mouseY < menuButtonDivY + menuButtonDivHeight ) {
-background(#000000 );
-} else {
- drawEverything();
-  
-
-}
-
-
- 
+  if ( mouseX > menuButtonDivX && mouseX < menuButtonDivX + menuButtonDivWidth && mouseY > menuButtonDivY && mouseY < menuButtonDivY + menuButtonDivHeight ) {
+    background(#000000 );
+  } else {
+    drawEverything();
+  }
 }
 
 void drawEverything() {
-  
-    //Display
+
+  //Display
   fullScreen(); //displayWidth //displayHeight
   int appWidth = displayWidth;
   int appHeight = displayHeight;
@@ -930,10 +925,10 @@ void drawEverything() {
   float searchButtonDivWidth = appWidth * 12 / paperWidth;
   float searchButtonDivHeight = appHeight * 12 / paperHeight;
 
-   menuButtonDivX = appWidth * 5 / paperWidth;
-   menuButtonDivY = appHeight * 5 / paperHeight;
-   menuButtonDivWidth = appWidth * 12 / paperWidth;
-   menuButtonDivHeight = appHeight * 12 / paperHeight;
+  menuButtonDivX = appWidth * 5 / paperWidth;
+  menuButtonDivY = appHeight * 5 / paperHeight;
+  menuButtonDivWidth = appWidth * 12 / paperWidth;
+  menuButtonDivHeight = appHeight * 12 / paperHeight;
 
   float artistNameDivX = appWidth * 95 / paperWidth;
   float artistNameDivY = appHeight * 95 / paperHeight;
@@ -1078,10 +1073,10 @@ void drawEverything() {
 
 
 
-  
 
 
-  String open; 
+
+  String open;
   float fontsize = 40;
 
   PFont font;
@@ -1662,8 +1657,8 @@ void drawEverything() {
 
 
 
-  
-  
+
+
 
 
 
