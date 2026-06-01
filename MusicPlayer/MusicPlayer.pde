@@ -33,7 +33,8 @@ float restartSongDivX, restartSongDivY, restartSongDivWidth, restartSongDivHeigh
 float loopDivX, loopDivY, loopDivWidth, loopDivHeight;
 float stopLoopDivX, stopLoopDivY, stopLoopDivWidth, stopLoopDivHeight;
 float ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight;
-
+float blackExitDivX, blackExitDivY, blackExitDivWidth, blackExitDivHeight;
+ float menuButtonDivX, menuButtonDivY, menuButtonDivWidth, menuButtonDivHeight;
 //
 void setup() {
   //Display
@@ -74,10 +75,10 @@ void setup() {
   float searchButtonDivWidth = appWidth * 12 / paperWidth;
   float searchButtonDivHeight = appHeight * 12 / paperHeight;
 
-  float menuButtonDivX = appWidth * 5 / paperWidth;
-  float menuButtonDivY = appHeight * 5 / paperHeight;
-  float menuButtonDivWidth = appWidth * 12 / paperWidth;
-  float menuButtonDivHeight = appHeight * 12 / paperHeight;
+   menuButtonDivX = appWidth * 5 / paperWidth;
+   menuButtonDivY = appHeight * 5 / paperHeight;
+   menuButtonDivWidth = appWidth * 12 / paperWidth;
+   menuButtonDivHeight = appHeight * 12 / paperHeight;
 
   float artistNameDivX = appWidth * 95 / paperWidth;
   float artistNameDivY = appHeight * 95 / paperHeight;
@@ -169,6 +170,12 @@ void setup() {
   float playlistsDivY = appHeight * 160 / paperHeight;
   float playlistsDivWidth = appWidth * 25 / paperWidth;
   float playlistsDivHeight = appHeight * 25 / paperHeight;
+
+  blackExitDivX = 0;
+  blackExitDivY = 0;
+  blackExitDivWidth = appWidth;
+  blackExitDivHeight = appHeight;
+
   stroke(120, 200, 255);
   strokeWeight(3);
   fill(15, 15, 18);
@@ -319,7 +326,7 @@ void setup() {
   textFont(titleFont, Fontsize3);
   text( Artistname, artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight );
 
-  String AboutAthour = "About author" ;
+  String AboutAthour = " Polo G is an American rapper and songwriter from Chicago Illinois. His real name is Taurus Bartlett, and he became famous for songs like Pop Out, Rapstar, and Martin & Gina." ;
   textFont(titleFont, Fontsize2);
   text( AboutAthour, aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight );
 
@@ -378,11 +385,6 @@ void setup() {
 
   image(image1, songCoverDivX, songCoverDivY, imageWidthAdjusted, imageHeightAdjusted);
 
-  //Music Buttons
-
-  // =====================================================
-  // ⏮ RESTART SONG BUTTON
-  // =====================================================
 
   // LEFT BAR
   float restartBarX = restartSongDivX + restartSongDivWidth * 1/4;
@@ -398,7 +400,7 @@ void setup() {
     );
 
 
-  // TRIANGLE
+
   float restartTriX1 = restartSongDivX + restartSongDivWidth * 3/4;
   float restartTriY1 = restartSongDivY + restartSongDivHeight * 1/4;
 
@@ -508,67 +510,67 @@ void setup() {
 
 
 
-float menuLine1X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
-float menuLine1Y1 = menuButtonDivY + menuButtonDivHeight * 1/4;
+  float menuLine1X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
+  float menuLine1Y1 = menuButtonDivY + menuButtonDivHeight * 1/4;
 
-float menuLine1X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
-float menuLine1Y2 = menuButtonDivY + menuButtonDivHeight * 1/4;
-
-
-
-float menuLine2X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
-float menuLine2Y1 = menuButtonDivY + menuButtonDivHeight * 1/2;
-
-float menuLine2X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
-float menuLine2Y2 = menuButtonDivY + menuButtonDivHeight * 1/2;
+  float menuLine1X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
+  float menuLine1Y2 = menuButtonDivY + menuButtonDivHeight * 1/4;
 
 
 
-float menuLine3X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
-float menuLine3Y1 = menuButtonDivY + menuButtonDivHeight * 3/4;
+  float menuLine2X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
+  float menuLine2Y1 = menuButtonDivY + menuButtonDivHeight * 1/2;
 
-float menuLine3X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
-float menuLine3Y2 = menuButtonDivY + menuButtonDivHeight * 3/4;
-
-
-
-line(menuLine1X1, menuLine1Y1, menuLine1X2, menuLine1Y2);
-line(menuLine2X1, menuLine2Y1, menuLine2X2, menuLine2Y2);
-line(menuLine3X1, menuLine3Y1, menuLine3X2, menuLine3Y2);
+  float menuLine2X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
+  float menuLine2Y2 = menuButtonDivY + menuButtonDivHeight * 1/2;
 
 
 
+  float menuLine3X1 = menuButtonDivX + menuButtonDivWidth * 1/4;
+  float menuLine3Y1 = menuButtonDivY + menuButtonDivHeight * 3/4;
 
-
-float searchCircleX = searchButtonDivX + searchButtonDivWidth * 2/5;
-float searchCircleY = searchButtonDivY + searchButtonDivHeight * 2/5;
-
-float searchCircleSize =
-  (searchButtonDivWidth + searchButtonDivHeight) / 5;
-
-
-
-float searchHandleX1 = searchButtonDivX + searchButtonDivWidth * 4/8;
-float searchHandleY1 = searchButtonDivY + searchButtonDivHeight * 4/8;
-
-float searchHandleX2 = searchButtonDivX + searchButtonDivWidth * 3/4;
-float searchHandleY2 = searchButtonDivY + searchButtonDivHeight * 3/4;
+  float menuLine3X2 = menuButtonDivX + menuButtonDivWidth * 3/4;
+  float menuLine3Y2 = menuButtonDivY + menuButtonDivHeight * 3/4;
 
 
 
-ellipse(
-  searchCircleX,
-  searchCircleY,
-  searchCircleSize,
-  searchCircleSize
-);
+  line(menuLine1X1, menuLine1Y1, menuLine1X2, menuLine1Y2);
+  line(menuLine2X1, menuLine2Y1, menuLine2X2, menuLine2Y2);
+  line(menuLine3X1, menuLine3Y1, menuLine3X2, menuLine3Y2);
 
-line(
-  searchHandleX1,
-  searchHandleY1,
-  searchHandleX2,
-  searchHandleY2
-);
+
+
+
+
+  float searchCircleX = searchButtonDivX + searchButtonDivWidth * 2/5;
+  float searchCircleY = searchButtonDivY + searchButtonDivHeight * 2/5;
+
+  float searchCircleSize =
+    (searchButtonDivWidth + searchButtonDivHeight) / 5;
+
+
+
+  float searchHandleX1 = searchButtonDivX + searchButtonDivWidth * 4/8;
+  float searchHandleY1 = searchButtonDivY + searchButtonDivHeight * 4/8;
+
+  float searchHandleX2 = searchButtonDivX + searchButtonDivWidth * 3/4;
+  float searchHandleY2 = searchButtonDivY + searchButtonDivHeight * 3/4;
+
+
+
+  ellipse(
+    searchCircleX,
+    searchCircleY,
+    searchCircleSize,
+    searchCircleSize
+    );
+
+  line(
+    searchHandleX1,
+    searchHandleY1,
+    searchHandleX2,
+    searchHandleY2
+    );
 
 
 
@@ -592,45 +594,45 @@ line(
   line(LoopX2, LoopY2, LoopX3, LoopY3);
   line(LoopX3, LoopY3, LoopX4, LoopY4);
   line(LoopX4, LoopY4, LoopX1, LoopY1);
-  
-
-float LoopInfiniteX1 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/4;
-float LoopInfiniteY1 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/4;
-
-float LoopInfiniteX2 = LoopinfiniteDivX + LoopinfiniteDivWidth * 3/4;
-float LoopInfiniteY2 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/4;
-
-float LoopInfiniteX3 = LoopinfiniteDivX + LoopinfiniteDivWidth * 3/4;
-float LoopInfiniteY3 = LoopinfiniteDivY + LoopinfiniteDivHeight * 3/4;
-
-float LoopInfiniteX4 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/4;
-float LoopInfiniteY4 = LoopinfiniteDivY + LoopinfiniteDivHeight * 3/4;
 
 
+  float LoopInfiniteX1 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/4;
+  float LoopInfiniteY1 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/4;
 
-line(LoopInfiniteX1, LoopInfiniteY1, LoopInfiniteX2, LoopInfiniteY2);
-line(LoopInfiniteX2, LoopInfiniteY2, LoopInfiniteX3, LoopInfiniteY3);
-line(LoopInfiniteX3, LoopInfiniteY3, LoopInfiniteX4, LoopInfiniteY4);
-line(LoopInfiniteX4, LoopInfiniteY4, LoopInfiniteX1, LoopInfiniteY1);
+  float LoopInfiniteX2 = LoopinfiniteDivX + LoopinfiniteDivWidth * 3/4;
+  float LoopInfiniteY2 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/4;
 
+  float LoopInfiniteX3 = LoopinfiniteDivX + LoopinfiniteDivWidth * 3/4;
+  float LoopInfiniteY3 = LoopinfiniteDivY + LoopinfiniteDivHeight * 3/4;
 
-float OneX1 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/2;
-float OneY1 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/3;
-
-// BOTTOM OF 1
-float OneX2 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/2;
-float OneY2 = LoopinfiniteDivY + LoopinfiniteDivHeight * 2/3;
-
-
-float OneTopX = LoopinfiniteDivX + LoopinfiniteDivWidth * 7/16;
-float OneTopY = LoopinfiniteDivY + LoopinfiniteDivHeight * 7/16;
+  float LoopInfiniteX4 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/4;
+  float LoopInfiniteY4 = LoopinfiniteDivY + LoopinfiniteDivHeight * 3/4;
 
 
 
-line(OneTopX, OneTopY, OneX1, OneY1);
-line(OneX1, OneY1, OneX2, OneY2);
-  
-  
+  line(LoopInfiniteX1, LoopInfiniteY1, LoopInfiniteX2, LoopInfiniteY2);
+  line(LoopInfiniteX2, LoopInfiniteY2, LoopInfiniteX3, LoopInfiniteY3);
+  line(LoopInfiniteX3, LoopInfiniteY3, LoopInfiniteX4, LoopInfiniteY4);
+  line(LoopInfiniteX4, LoopInfiniteY4, LoopInfiniteX1, LoopInfiniteY1);
+
+
+  float OneX1 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/2;
+  float OneY1 = LoopinfiniteDivY + LoopinfiniteDivHeight * 1/3;
+
+  // BOTTOM OF 1
+  float OneX2 = LoopinfiniteDivX + LoopinfiniteDivWidth * 1/2;
+  float OneY2 = LoopinfiniteDivY + LoopinfiniteDivHeight * 2/3;
+
+
+  float OneTopX = LoopinfiniteDivX + LoopinfiniteDivWidth * 7/16;
+  float OneTopY = LoopinfiniteDivY + LoopinfiniteDivHeight * 7/16;
+
+
+
+  line(OneTopX, OneTopY, OneX1, OneY1);
+  line(OneX1, OneY1, OneX2, OneY2);
+
+
 
 
   float stopLoopX1 = stopLoopDivX + stopLoopDivWidth * 1/4;
@@ -855,7 +857,6 @@ line(OneX1, OneY1, OneX2, OneY2);
 }
 
 
-
 //End Setup
 //
 void draw() {
@@ -870,25 +871,38 @@ void draw() {
     songTitleDivWidth,
     songTitleDivHeight);
 
+
+
   if (!playList[currentSong].isPlaying() && !isPaused) {
     playList[currentSong].play();
   }
+
+if ( mouseX > menuButtonDivX && mouseX < menuButtonDivX + menuButtonDivWidth && mouseY > menuButtonDivY && mouseY < menuButtonDivY + menuButtonDivHeight ) {
+
+rect( artistPictureDivX, artistPictureDivY, artistPictureDivWidth, artistPictureDivHeight ); 
+
+   
+
+}
+
+
+ 
 }
 
 
 
 void mousePressed () {
-  
- 
-
- soundEffects[0].rewind();
-soundEffects[0].play();
 
 
- 
-  
 
-  
+  soundEffects[0].rewind();
+  soundEffects[0].play();
+
+
+
+
+
+
 
 
   if ( mouseX > playDivX && mouseX <  playDivX +  playDivWidth && mouseY >  playDivY && mouseY <  playDivY +  playDivHeight ) {
@@ -969,9 +983,11 @@ soundEffects[0].play();
   if ( mouseX > stopLoopDivX && mouseX <  stopLoopDivX +  stopLoopDivWidth && mouseY >  stopLoopDivY && mouseY <  stopLoopDivY +  stopLoopDivHeight ) {
     playList[currentSong].pause();
     playList[currentSong].isPlaying();
-   
   }
-  if ( mouseX > ExitButtonDivX && mouseX <  ExitButtonDivX +  ExitButtonDivWidth && mouseY >  ExitButtonDivY && mouseY <  ExitButtonDivY +  ExitButtonDivHeight ) {
+  if ( mouseX > ExitButtonDivX && mouseX < ExitButtonDivX + ExitButtonDivWidth && mouseY > ExitButtonDivY && mouseY < ExitButtonDivY + ExitButtonDivHeight ) {
+
+
+
     exit();
   }
 }
