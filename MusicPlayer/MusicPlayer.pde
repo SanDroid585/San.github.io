@@ -35,6 +35,7 @@ float stopLoopDivX, stopLoopDivY, stopLoopDivWidth, stopLoopDivHeight;
 float ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight;
 float blackExitDivX, blackExitDivY, blackExitDivWidth, blackExitDivHeight;
 float menuButtonDivX, menuButtonDivY, menuButtonDivWidth, menuButtonDivHeight;
+float TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight;
 //
 void setup() {
   //Display
@@ -50,10 +51,13 @@ void setup() {
   background(190, 60, 70);
 
 
-  songTitleDivX = appWidth * 25 / paperWidth;
-  songTitleDivY = appHeight * 5 / paperHeight;
-  songTitleDivWidth = appWidth * 80 / paperWidth;
-  songTitleDivHeight = appHeight * 12 / paperHeight;
+
+
+
+  float songTitleDivX = appWidth * 25 / paperWidth;
+  float songTitleDivY = appHeight * 5 / paperHeight;
+  float  songTitleDivWidth = appWidth * 80 / paperWidth;
+  float songTitleDivHeight = appHeight * 12 / paperHeight;
 
   float lyricsDivX = appWidth * 5 / paperWidth;
   float lyricsDivY = appHeight * 25 / paperHeight;
@@ -85,10 +89,10 @@ void setup() {
   float artistNameDivWidth = appWidth * 31 / paperWidth;
   float artistNameDivHeight = appHeight * 10 / paperHeight;
 
-  float artistPictureDivX = appWidth * 95 / paperWidth;
-  float artistPictureDivY = appHeight * 107 / paperHeight;
-  float artistPictureDivWidth = appWidth * 31 / paperWidth;
-  float artistPictureDivHeight = appHeight * 28 / paperHeight;
+  TrymeDivX = appWidth * 95 / paperWidth;
+  TrymeDivY = appHeight * 107 / paperHeight;
+  TrymeDivWidth = appWidth * 31 / paperWidth;
+  TrymeDivHeight = appHeight * 28 / paperHeight;
 
   float aboutAuthorDivX = appWidth * 95 / paperWidth;
   float aboutAuthorDivY = appHeight * 137 / paperHeight;
@@ -181,7 +185,8 @@ void setup() {
   fill(15, 15, 18);
 
 
-  rect(songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight);
+
+  rect(songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
   rect(lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight);
   rect(songCoverDivX, songCoverDivY, songCoverDivWidth, songCoverDivHeight);
   rect(searchButtonDivX, searchButtonDivY, searchButtonDivWidth, searchButtonDivHeight);
@@ -189,7 +194,7 @@ void setup() {
 
   rect(artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight);
 
-  rect(artistPictureDivX, artistPictureDivY, artistPictureDivWidth, artistPictureDivHeight);
+  rect(TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight);
   fill(15, 15, 18);
   rect(aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight);
 
@@ -289,6 +294,8 @@ void setup() {
   float Fontsize2 = fontsize*1/3;
   float Fontsize3 = fontsize*1/2;
   float Fontsize4 = fontsize*2/3;
+  float Fontsize5 = fontsize*3;
+  float Fontsize6 = fontsize*1;
 
   String Black_Italik = "SegoeUIBlack-Italic";
   PFont titleFont;
@@ -315,9 +322,19 @@ void setup() {
     textFont(titleFont, fontsize);
   }
 
+  String Tryme = "TRY ME";
+  textFont(titleFont, Fontsize5 );
+  text( Tryme, TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight );
+
+  String songTitle = "San Music Player ";
+  textFont(titleFont, Fontsize6  ) ;
+  text( songTitle, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
+
+
   String Lyrics = "Lyrics" ;
   textFont(titleFont, Fontsize4);
   text( Lyrics, lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight );
+
   fill(resetink);
 
   //IMGAGE
@@ -878,7 +895,7 @@ void draw() {
   }
 
 
-  if ( mouseX > menuButtonDivX && mouseX < menuButtonDivX + menuButtonDivWidth && mouseY > menuButtonDivY && mouseY < menuButtonDivY + menuButtonDivHeight ) {
+  if ( mouseX > TrymeDivX && mouseX < TrymeDivX + TrymeDivWidth && mouseY > TrymeDivY && mouseY < TrymeDivY + TrymeDivHeight ) {
     background(#000000 );
   } else {
     drawEverything();
@@ -935,10 +952,10 @@ void drawEverything() {
   float artistNameDivWidth = appWidth * 31 / paperWidth;
   float artistNameDivHeight = appHeight * 10 / paperHeight;
 
-  float artistPictureDivX = appWidth * 95 / paperWidth;
-  float artistPictureDivY = appHeight * 107 / paperHeight;
-  float artistPictureDivWidth = appWidth * 31 / paperWidth;
-  float artistPictureDivHeight = appHeight * 28 / paperHeight;
+  float TrymeDivX = appWidth * 95 / paperWidth;
+  float TrymeDivY = appHeight * 107 / paperHeight;
+  float TrymeDivWidth = appWidth * 31 / paperWidth;
+  float TrymeDivHeight = appHeight * 28 / paperHeight;
 
   float aboutAuthorDivX = appWidth * 95 / paperWidth;
   float aboutAuthorDivY = appHeight * 137 / paperHeight;
@@ -1039,7 +1056,7 @@ void drawEverything() {
 
   rect(artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight);
 
-  rect(artistPictureDivX, artistPictureDivY, artistPictureDivWidth, artistPictureDivHeight);
+  rect(TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight);
   fill(15, 15, 18);
   rect(aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight);
 
@@ -1088,6 +1105,8 @@ void drawEverything() {
   float Fontsize2 = fontsize*1/3;
   float Fontsize3 = fontsize*1/2;
   float Fontsize4 = fontsize*2/3;
+  float Fontsize5 = fontsize*2;
+  float Fontsize6 = fontsize*1;
 
   String Black_Italik = "SegoeUIBlack-Italic";
   PFont titleFont;
@@ -1113,6 +1132,14 @@ void drawEverything() {
     fontsize *= constantDecrease;
     textFont(titleFont, fontsize);
   }
+  String Tryme = "TRY ME";
+  textFont(titleFont, Fontsize5 );
+  text( Tryme, TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight );
+
+
+  String songTitle = "San Music Player ";
+  textFont(titleFont, Fontsize6  ) ;
+  text( songTitle, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
 
   String Lyrics = "Lyrics" ;
   textFont(titleFont, Fontsize4);
