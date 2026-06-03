@@ -1151,8 +1151,14 @@ void drawEverything() {
   text( Tryme, TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight );
 
 
-  String songTitle = "San Music Player ";
-  textFont(titleFont, Fontsize6  ) ;
+  String songTitle;
+  if (currentSong == 0) {
+    songTitle = "San Music Player                    Now Playing>>>>>>>>>>>Martin & Gina";
+  } else {
+    songTitle = "San Music Player                          Now Playing>>>>>>>>>>>Rapstar";
+  }
+  
+  textFont(titleFont, 30  ) ;
   text( songTitle, songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
 
   String Lyrics = "Lyrics" ;
