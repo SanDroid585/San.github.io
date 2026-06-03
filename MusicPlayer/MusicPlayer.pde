@@ -48,7 +48,7 @@ void setup() {
   int paperWidth = 131;
   int paperHeight = 197;
 
-  background(190, 60, 70);
+  background(#00FF39);
 
 
 
@@ -180,46 +180,60 @@ void setup() {
   blackExitDivWidth = appWidth;
   blackExitDivHeight = appHeight;
 
-  stroke(120, 200, 255);
+  stroke(#FF7A00);
   strokeWeight(3);
   fill(15, 15, 18);
 
 
-
+  fill( #FFFCFC );
   rect(songTitleDivX, songTitleDivY, songTitleDivWidth, songTitleDivHeight );
+  fill( #FFFCFC );
   rect(lyricsDivX, lyricsDivY, lyricsDivWidth, lyricsDivHeight);
+  fill( #FFFCFC );
   rect(songCoverDivX, songCoverDivY, songCoverDivWidth, songCoverDivHeight);
+  fill( #FFFCFC );
   rect(searchButtonDivX, searchButtonDivY, searchButtonDivWidth, searchButtonDivHeight);
+  fill( #FFFCFC );
   rect(menuButtonDivX, menuButtonDivY, menuButtonDivWidth, menuButtonDivHeight);
-
+  fill( #FFFCFC );
   rect(artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight);
-
+  fill( #FFFCFC );
   rect(TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight);
   fill(15, 15, 18);
+  fill( #FFFCFC );
   rect(aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight);
-
+  fill( #FFFCFC );
   rect(controlsBoxDivX, controlsBoxDivY, controlsBoxDivWidth, controlsBoxDivHeight);
-
+  fill( #FFFCFC );
   rect(restartSongDivX, restartSongDivY, restartSongDivWidth, restartSongDivHeight);
+  fill( #FFFCFC );
 
   rect(previousSongDivX, previousSongDivY, previousSongDivWidth, previousSongDivHeight);
+  fill( #FFFCFC );
   rect(back5DivX, back5DivY, back5DivWidth, back5DivHeight);
+  fill( #FFFCFC );
   rect(pauseDivX, pauseDivY, pauseDivWidth, pauseDivHeight);
+  fill( #FFFCFC );
   rect(skip5DivX, skip5DivY, skip5DivWidth, skip5DivHeight);
+  fill( #FFFCFC );
   rect(nextSongDivX, nextSongDivY, nextSongDivWidth, nextSongDivHeight);
-
+  fill( #FFFCFC );
   rect(LoopinfiniteDivX, LoopinfiniteDivY, LoopinfiniteDivWidth, LoopinfiniteDivHeight);
-
+  fill( #FFFCFC );
   rect(ExitButtonDivX, ExitButtonDivY, ExitButtonDivWidth, ExitButtonDivHeight);
-
+  fill( #FFFCFC );
   rect(favouritesDivX, favouritesDivY, favouritesDivWidth, favouritesDivHeight);
+  fill( #FFFCFC );
   rect(songsDivX, songsDivY, songsDivWidth, songsDivHeight);
+  fill( #FFFCFC );
   rect(playlistsDivX, playlistsDivY, playlistsDivWidth, playlistsDivHeight);
-
+  fill( #FFFCFC );
   rect(playDivX, playDivY, playDivWidth, playDivHeight);
+  fill( #FFFCFC );
   rect(stopDivX, stopDivY, stopDivWidth, stopDivHeight);
-
+  fill( #FFFCFC );
   rect(loopDivX, loopDivY, loopDivWidth, loopDivHeight);
+  fill( #FFFCFC );
   rect(stopLoopDivX, stopLoopDivY, stopLoopDivWidth, stopLoopDivHeight);
 
 
@@ -1055,7 +1069,7 @@ void drawEverything() {
   rect(menuButtonDivX, menuButtonDivY, menuButtonDivWidth, menuButtonDivHeight);
 
   rect(artistNameDivX, artistNameDivY, artistNameDivWidth, artistNameDivHeight);
-
+  fill (#000462);
   rect(TrymeDivX, TrymeDivY, TrymeDivWidth, TrymeDivHeight);
   fill(15, 15, 18);
   rect(aboutAuthorDivX, aboutAuthorDivY, aboutAuthorDivWidth, aboutAuthorDivHeight);
