@@ -960,7 +960,6 @@ void mousePressed () {
 
 
   if ( mouseX > playDivX && mouseX <  playDivX +  playDivWidth && mouseY >  playDivY && mouseY <  playDivY +  playDivHeight ) {
-    playList[currentSong].loop(0);
 
     isPaused = false;
   }
